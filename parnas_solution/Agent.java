@@ -1,3 +1,4 @@
+package parnas_solution;
 import java.util.concurrent.Semaphore;
 
 // Parnas yaklaşımı: Agent her tur iki malzeme koyar, pushers ve scoreboard kombinasyonu çözer.

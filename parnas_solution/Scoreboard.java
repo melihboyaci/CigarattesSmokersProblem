@@ -1,3 +1,5 @@
+package parnas_solution;
+
 // Pushers arası koordinasyon: masada hangi tekli malzeme bekliyor?
 public class Scoreboard {
     private boolean isTobacco = false;

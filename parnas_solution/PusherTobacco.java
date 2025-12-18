@@ -1,19 +1,21 @@
+package parnas_solution;
+
 import java.util.concurrent.Semaphore;
 
-// Paper pusher: masaya kağıt konduğunu görür ve doğru içiciyi uyandırır.
-public class PusherPaper implements Runnable {
-    private final Semaphore paper;
+// Tobacco pusher: masaya tütün konduğunu görür ve kombinasyonu tamamlar.
+public class PusherTobacco implements Runnable {
+    private final Semaphore tobacco;
     private final Semaphore mutex;
     private final Semaphore matchSmoker;
-    private final Semaphore tobaccoSmoker;
+    private final Semaphore paperSmoker;
     private final Scoreboard scoreboard;
 
-    public PusherPaper(Semaphore paper, Semaphore mutex, Semaphore matchSmoker,
-                       Semaphore tobaccoSmoker, Scoreboard scoreboard) {
-        this.paper = paper;
+    public PusherTobacco(Semaphore tobacco, Semaphore mutex, Semaphore matchSmoker,
+                         Semaphore paperSmoker, Scoreboard scoreboard) {
+        this.tobacco = tobacco;
         this.mutex = mutex;
         this.matchSmoker = matchSmoker;
-        this.tobaccoSmoker = tobaccoSmoker;
+        this.paperSmoker = paperSmoker;
         this.scoreboard = scoreboard;
     }
 
@@ -21,17 +23,17 @@ public class PusherPaper implements Runnable {
     public void run() {
         try {
             while (true) {
-                paper.acquire();
+                tobacco.acquire();
                 mutex.acquire();
 
-                if (scoreboard.isTobacco()) {
-                    scoreboard.setTobacco(false);
+                if (scoreboard.isPaper()) {
+                    scoreboard.setPaper(false);
                     matchSmoker.release();
                 } else if (scoreboard.isMatch()) {
                     scoreboard.setMatch(false);
-                    tobaccoSmoker.release();
+                    paperSmoker.release();
                 } else {
-                    scoreboard.setPaper(true);
+                    scoreboard.setTobacco(true);
                 }
 
                 mutex.release();

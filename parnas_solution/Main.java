@@ -1,3 +1,4 @@
+package parnas_solution;
 import java.util.concurrent.Semaphore;
 
 // Parnas yaklaşımı: pushers + scoreboard ile yarış durumları engellenir.

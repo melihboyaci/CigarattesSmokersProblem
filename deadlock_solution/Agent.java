@@ -1,3 +1,5 @@
+package deadlock_solution;
+
 import java.util.concurrent.Semaphore;
 
 // Naif (deadlock'lı) çözüm: Agent iki malzemeyi bırakır, masa boşalana dek bekler.

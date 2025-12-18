@@ -1,3 +1,5 @@
+package deadlock_solution;
+
 import java.util.concurrent.Semaphore;
 // Naif yaklaşım: içiciler iki malzemeyi ayrı ayrı kilitleyerek alıyor; sıradaki kombinde deadlock oluşabiliyor.
 public class Smoker implements Runnable {

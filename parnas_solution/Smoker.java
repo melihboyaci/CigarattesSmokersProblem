@@ -1,3 +1,5 @@
+package parnas_solution;
+
 import java.util.concurrent.Semaphore;
 
 // Her içici elindeki malzeme dışındaki iki malzemeyi bekler.

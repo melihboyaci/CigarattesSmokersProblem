@@ -1,3 +1,5 @@
+package deadlock_solution;
+
 import java.util.concurrent.Semaphore;
 
 // Deadlock ihtimali gösteren naif çözüm: iki içici ayrı malzemeleri kapınca masa boşalmaz.
